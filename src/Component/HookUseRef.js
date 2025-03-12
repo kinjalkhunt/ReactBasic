@@ -1,3 +1,11 @@
+// What is UseRef hook?
+
+// >>> The useRef Hook allows you to persist values between renders.
+// >>> It can be used to store a mutable value that does not cause a re-render when updated.
+// >>> It can be used to access a DOM element directly.
+// UseRef હૂક તમને રેન્ડરો વચ્ચેના મૂલ્યોને ચાલુ રાખવા માટે પરવાનગી આપે છે.
+// તેનો ઉપયોગ પરિવર્તનશીલ મૂલ્યને સંગ્રહિત કરવા માટે થઈ શકે છે જે અપડેટ થવા પર ફરીથી રેન્ડર કરતું નથી.
+// તેનો ઉપયોગ DOM ઘટકને સીધો ઍક્સેસ કરવા માટે થઈ શકે છે.
 import React, { useRef } from 'react';
 
 function HookUseRef() {
@@ -42,3 +50,31 @@ function HookUseRef() {
 }
 
 export default HookUseRef;
+
+
+
+// import React, { useRef, useState } from "react";
+
+// const Counter = () => {
+//   const countRef = useRef(0); // Does NOT cause a re-render
+//   const [renderCount, setRenderCount] = useState(0); // Causes re-render
+
+//   const handleIncrement = () => {
+//     countRef.current += 1;
+//     console.log("Ref Value:", countRef.current); // Updates but doesn't re-render
+//   };
+
+//   return (
+//     <div>
+//       <h3>Mutable Ref Value: {countRef.current}</h3> 
+//       <button onClick={handleIncrement}>Increment Ref</button>
+
+//       <h3>Component Re-renders: {renderCount}</h3>
+//       <button onClick={() => setRenderCount(renderCount + 1)}>Re-render</button>
+//       {console.log(">>>>>>>>",countRef.current)
+//       }
+//     </div>
+//   );
+// };
+
+// export default Counter;

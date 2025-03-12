@@ -44,7 +44,7 @@ const MyComponent = () => {
       <h2>Quotes</h2>
       <ul>
         {data?.quotes?.map((quote, index) => (
-          <li key={index}>{quote.quote}</li> // Assuming `quote` has a `quote` property
+          <li key={index}>{quote.quote}</li> 
         ))}
       </ul>
     </div>

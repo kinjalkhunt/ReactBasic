@@ -73,6 +73,8 @@ import React, { Component } from 'react'
 import CountHook from './Component/CountHook'
 import MyComponent from './Component/CountHook'
 import HookUseRef from './Component/HookUseRef'
+import Counter from './Component/HookUseRef'
+import Context from './Component/Context'
 
 export default class App extends Component {
 
@@ -107,9 +109,12 @@ export default class App extends Component {
         <ToggleBackground/> */}
         {/* <QuizApp/> */}
         {/* <Rating1/> */}
-        {/* <CountHook/>
-        <MyComponent/> */}
+         {/* <CountHook/>
+        <MyComponent/> 
         <HookUseRef/>
+        <Counter/> */}
+        <Context/>
+
        
         {/* <ToggleText /> */}
 
