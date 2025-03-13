@@ -75,6 +75,7 @@ import MyComponent from './Component/CountHook'
 import HookUseRef from './Component/HookUseRef'
 import Counter from './Component/HookUseRef'
 import Context from './Component/Context'
+import UseReducer from './Component/UseReducer'
 
 export default class App extends Component {
 
@@ -113,7 +114,8 @@ export default class App extends Component {
         <MyComponent/> 
         <HookUseRef/>
         <Counter/> */}
-        <Context/>
+        {/* <Context/> */}
+        <UseReducer/>
 
        
         {/* <ToggleText /> */}
