@@ -33,16 +33,16 @@
 // import Navigation from './Component/Navigation.js';
 
 // const App = () => {
-  // const [expenses, setExpenses] = useState([]);
+// const [expenses, setExpenses] = useState([]);
 
-  // const addExpense = (expense) => {
-  //   setExpenses([...expenses, expense]);
-  // };
+// const addExpense = (expense) => {
+//   setExpenses([...expenses, expense]);
+// };
 
-  // const deleteExpense = (index) => {
-  //   const updatedExpenses = expenses.filter((_, i) => i !== index);
-  //   setExpenses(updatedExpenses);
-  // };
+// const deleteExpense = (index) => {
+//   const updatedExpenses = expenses.filter((_, i) => i !== index);
+//   setExpenses(updatedExpenses);
+// };
 
 //   return (
 //     <div >
@@ -62,7 +62,7 @@
 
 
 
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
 // import Counter from './Component/Counter';
 // import Counter1 from './Component/Counter1';
 // import ToggleText from './Component/Counter';
@@ -70,15 +70,15 @@ import React, { Component } from 'react'
 // import ToggleBackground from './Component/Counter';
 // import QuizApp from './Component/Quiz';
 // import Rating1 from './Component/Counter';
-import CountHook from './Component/CountHook'
-import MyComponent from './Component/CountHook'
-import HookUseRef from './Component/HookUseRef'
-import Counter from './Component/HookUseRef'
-import Context from './Component/Context'
-import UseReducer from './Component/UseReducer'
-import Navigation from './Component/Navigation'
+// import CountHook from './Component/CountHook'
+// import MyComponent from './Component/CountHook'
+// import HookUseRef from './Component/HookUseRef'
+// import Counter from './Component/HookUseRef'
+// import Context from './Component/Context'
+// import UseReducer from './Component/UseReducer'
+// import Navigation from './Component/Navigation'
 
-export default class App extends Component {
+// export default class App extends Component {
 
 //   constructor() {
 //     super();
@@ -96,35 +96,35 @@ export default class App extends Component {
 //   increment = () => {
 //     this.setState({ count: this.state.count + 1 })
 //   }
-  render() {
-    return (
-      <div>
-        {/* <h1>{this.state.count}</h1> */}
-        {/* <button onClick={this.increment.bind(this)}>Clickme</button> */}
-        {/* <Counter number={this.state.count} /> */}
-        {/* <Counter1 number={this.state.count}/> */}
-       
-        {/* <button onClick={() => this.increment()}>Clickme</button> */}
+//   render() {
+//     return (
+//       <div>
+//         {/* <h1>{this.state.count}</h1> */}
+//         {/* <button onClick={this.increment.bind(this)}>Clickme</button> */}
+//         {/* <Counter number={this.state.count} /> */}
+//         {/* <Counter1 number={this.state.count}/> */}
 
-        {/* <Counter/> */}
-        {/* <Counter/>
-        <ToggleBackground/> */}
-        {/* <QuizApp/> */}
-        {/* <Rating1/> */}
-         {/* <CountHook/>
-        <MyComponent/> 
-        <HookUseRef/>
-        <Counter/> */}
-        {/* <Context/> */}
-        {/* <UseReducer/> */}
-          <Navigation/>
-       
-        {/* <ToggleText /> */}
+//         {/* <button onClick={() => this.increment()}>Clickme</button> */}
 
-      </div>
-    )
-  }
-}
+//         {/* <Counter/> */}
+//         {/* <Counter/>
+//         <ToggleBackground/> */}
+//         {/* <QuizApp/> */}
+//         {/* <Rating1/> */}
+//          {/* <CountHook/>
+//         <MyComponent/> 
+//         <HookUseRef/>
+//         <Counter/> */}
+//         {/* <Context/> */}
+//         {/* <UseReducer/> */}
+//           <Navigation/>
+
+//         {/* <ToggleText /> */}
+
+//       </div>
+//     )
+//   }
+// }
 // // import React, { Component } from 'react'
 
 // export default class App extends Component {
@@ -139,12 +139,12 @@ export default class App extends Component {
 //   }
 //   // componentDidUpdate(){
 //   //   console.log("when Update this Component: Component DidUpdate");
-    
+
 //   // }
 
 //   componentWillUnmount(){
 //     console.log("when Remove Component from Dom : Component WillUnmount");
-    
+
 //   }
 
 //   increment(){
@@ -169,7 +169,7 @@ export default class App extends Component {
 //   const [counter, setCounter] = useState(1); // Unique task number
 
 //   console.log("component will mount");
-  
+
 //   const addOrUpdateTask = () => {
 //     // if (input.trim() === "") return;
 
@@ -460,24 +460,40 @@ export default class App extends Component {
 
 // export default App;
 
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Component/Home";
+import About from "./Component/about";
+import Outlet1 from "./Component/Outlet";
+import Login from "./Component/header/page/Login";
+import AuthSuccess from "./Component/header/page/AuthSuccess";
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Outlet1 />}>
+          <Route path="/login" element={<Login/>} />
+          <Route path="/auth-success" element={<AuthSuccess/>} />
+          <Route index element={<Home />} />
+          <Route path="/user/:name" element={<About />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;
+
 // import React from "react";
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Home from "./Component/Home";
-// import About from "./Component/about";
-// import Outlet1 from "./Component/Outlet";
+// import TodoList from "./Component/redux/ToDoList.js";
 
 // const App = () => {
 //   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route path="/" element={<Outlet1 />}>
-//           <Route index element={<Home />} />
-//           <Route path="/user/:name" element={<About />} />
-//         </Route>
-//       </Routes>
-//     </BrowserRouter>
+//     <div className="h-screen flex items-center justify-center bg-gray-200">
+//       <TodoList/>
+//     </div>
 //   );
 // };
 
 // export default App;
-

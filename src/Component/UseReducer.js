@@ -1,3 +1,23 @@
+// UseReducer
+// It Can return an array Containing the current state and a dispatch function.
+// Dispatch Function
+// is Used to send actions to the reducer which in turn updates the state based on the action type and any association data (payload)
+// Reducer Function
+// It takes in the current state and an action and returns a new state based on the action type
+// Action
+// It is an object that contains a type and any associated data (payload) that the reducer will
+// use to update the state.
+// Action Types
+// They are string literals that are used to identify the type of action that is being dispatched.
+// They are used by the reducer to determine how to update the state based on the action type.
+// Action Creators
+// They are functions that return an action object with a type and any associated data (payload)
+// They are used to create actions that can be dispatched to the reducer.
+
+// Syntax
+
+// const [state, dispatch] = useReducer(reducer, initialState)
+
 import React, { useReducer } from 'react'
 
 function UseReducer() {
