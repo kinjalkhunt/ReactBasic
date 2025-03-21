@@ -28,7 +28,6 @@ function UseReducer() {
         } else {
             return state - 1;
         }
-
     }
     const [count, dispatch] = useReducer(reducer, 0);
     return (

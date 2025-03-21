@@ -63,7 +63,8 @@
 // export default Login
 
 
-import React, { useState } from "react";
+// Login.js
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -71,9 +72,44 @@ function Login() {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
+    // Check if user is already logged in
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            navigate("/"); // Redirect if already logged in
+        }
+    }, [navigate]);
+
     // Normal Login Handler
+    // const handleOnSubmit = async (e) => {
+    //     e.preventDefault();
+    //     if (email && password) {
+    //         try {
+    //             const response = await fetch("http://localhost:8000/v1/auth/login", {
+    //                 method: "POST",
+    //                 headers: {
+    //                     "Content-Type": "application/json",
+    //                 },
+    //                 body: JSON.stringify({ email, password }),
+    //             });
+
+    //             const data = await response.json();
+
+    //             if (response.ok) {
+    //                 localStorage.setItem("token", data.token);
+    //                 navigate("/");
+    //             } else {
+    //                 alert(data.message);
+    //             }
+    //         } catch (error) {
+    //             console.error("Login Error:", error);
+    //             alert("Something went wrong");
+    //         }
+    //     }
+    // };
     const handleOnSubmit = async (e) => {
-        e.preventDefault(); // Prevent form default submission
+        e.preventDefault();
+
         if (email && password) {
             try {
                 const response = await fetch("http://localhost:8000/v1/auth/login", {
@@ -87,10 +123,10 @@ function Login() {
                 const data = await response.json();
 
                 if (response.ok) {
-                    localStorage.setItem("token", data.token);
-                    navigate("/");
+                    localStorage.setItem("token", data.token); // Store token
+                    navigate("/"); // Redirect to home
                 } else {
-                    alert(data.message);
+                    alert(data.message); // Show backend error message
                 }
             } catch (error) {
                 console.error("Login Error:", error);
@@ -101,7 +137,7 @@ function Login() {
 
     // Google Login Handler
     const handleGoogleLogin = () => {
-        window.location.href = "http://localhost:8000/v1/auth/google";
+        window.open("http://localhost:8000/v1/auth/google", "_self");
     };
 
     return (
@@ -135,9 +171,21 @@ function Login() {
                         type="submit"
                         className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors"
                     >
-                        Submit
+                        Login
                     </button>
                 </form>
+                <div className="pt-4 text-center">
+                    <h1 className="text-sm text-gray-600">
+                        Not Registered?{" "}
+                        <span
+                            className="text-blue-500 underline cursor-pointer hover:text-blue-600"
+                            onClick={() => navigate("/register")}
+                        >
+                            Create An Account
+                        </span>
+                    </h1>
+                </div>
+
 
                 {/* Google Login Button */}
                 <button
