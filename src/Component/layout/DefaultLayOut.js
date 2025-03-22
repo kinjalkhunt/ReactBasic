@@ -1,7 +1,7 @@
 import React from "react";
 import Content from "../Content";
 
-function DefaultLayOut() {
+function Out() {
   return (
     <div>
       <Content />
@@ -9,4 +9,4 @@ function DefaultLayOut() {
   );
 }
 
-export default DefaultLayOut;
+export default Out;

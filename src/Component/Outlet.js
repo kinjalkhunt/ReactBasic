@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Header from './Header.js'
-import Footer from './Footer.js'
+import Footer from './header/footer/Footer.js'
+import Header from './header/navbar/Header.js'
 
 function Outlet1() {
   return (

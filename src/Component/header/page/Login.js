@@ -137,7 +137,7 @@ function Login() {
 
     // Google Login Handler
     const handleGoogleLogin = () => {
-        window.open("http://localhost:8000/v1/auth/google", "_self");
+        window.open("http://localhost:8000/v1/auth/google/", "_self");
     };
 
     return (

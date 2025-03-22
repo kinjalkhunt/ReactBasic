@@ -1,6 +1,6 @@
 
 import React, { useContext } from 'react'
-import {MyContext} from '../Component/Context'
+import {MyContext} from './Context'
 
 function Context3() {
     const use = useContext(MyContext)
