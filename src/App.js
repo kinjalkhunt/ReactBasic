@@ -62,79 +62,80 @@
 // export default App;
 
 // *********************
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import React from "react";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Outlet1 from "./Component/Outlet";
-import Login from "./Component/header/page/Login";
-import AuthSuccess from "./Component/header/page/AuthSuccess";
-import Home from "./Component/header/Home";
-import About from "./Component/header/About";
-import Blog from "./Component/header/Blog";
-import PrivateRoute from "./Component/header/PrivateRoute";
-import Register from "./Component/header/page/Register";
-import EffectState from "./Component/useeffect/EffectState";
-import IsActive from "./Component/useeffect/IsActive";
-import ImageShow from "./Component/useState/ImageShow";
-import LikeDislike from "./Component/useState/LikeDislike";
-import ToDoTask from "./Component/useState/ToDo";
-import ReactLifecycle from "./Component/lifeCycleandProps/ReactLifecycle";
-import Props from "./Component/lifeCycleandProps/Props";
+// import Outlet1 from "./Component/Outlet";
+// import Login from "./Component/header/page/Login";
+// import AuthSuccess from "./Component/header/page/AuthSuccess";
+// import Home from "./Component/header/Home";
+// import About from "./Component/header/About";
+// import Blog from "./Component/header/Blog";
+// import PrivateRoute from "./Component/header/PrivateRoute";
+// import Register from "./Component/header/page/Register";
+// import EffectState from "./Component/useeffect/EffectState";
+// import IsActive from "./Component/useeffect/IsActive";
+// import ImageShow from "./Component/useState/ImageShow";
+// import LikeDislike from "./Component/useState/LikeDislike";
+// import ToDoTask from "./Component/useState/ToDo";
+// import ReactLifecycle from "./Component/lifeCycleandProps/ReactLifecycle";
+// import Props from "./Component/lifeCycleandProps/Props";
 
-const App = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Outlet1 />}>
+// const App = () => {
+//   return (
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path="/" element={<Outlet1 />}>
 
-          {/* Public Routes */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/auth-success" element={<AuthSuccess />} />
-          <Route path="/register" element={<Register />} />
-          {/* Protected Routes (Only accessible when logged in) */}
-          <Route
-            index
-            element={
-              <PrivateRoute>
-                <Home />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <PrivateRoute>
-                <About />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/blog"
-            element={
-              <PrivateRoute>
-                <Blog />
-              </PrivateRoute>
-            }
-          />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
-};
+//           {/* Public Routes */}
+//           <Route path="/login" element={<Login />} />
+//           <Route path="/auth-success" element={<AuthSuccess />} />
+//           <Route path="/register" element={<Register />} />
+//           {/* Protected Routes (Only accessible when logged in) */}
+//           <Route
+//             index
+//             element={
+//               <PrivateRoute>
+//                 <Home />
+//               </PrivateRoute>
+//             }
+//           />
+//           <Route
+//             path="/about"
+//             element={
+//               <PrivateRoute>
+//                 <About />
+//               </PrivateRoute>
+//             }
+//           />
+//           <Route
+//             path="/blog"
+//             element={
+//               <PrivateRoute>
+//                 <Blog />
+//               </PrivateRoute>
+//             }
+//           />
+//         </Route>
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// };
 
-export default App;
+// export default App;
 
 //  in practice we use this in our routes 
 
 
-// import React from "react";
-// import TodoList from "./Component/redux/ToDoList.js";
-// import CountRedux from "./Component/redux1/CountRedux.js";
-// import Cart from "./Component/redux-toolkit/Cart.js";
+import React from "react";
+import TodoList from "./Component/redux/ToDoList.js";
+import CountRedux from "./Component/redux1/CountRedux.js";
+import Cart from "./Component/redux-toolkit/Cart.js";
+import ToDo from "./Component/redux-toolkit/ToDo.js";
 
-// const App = () => {
-//   return (
-//     <div className="h-screen flex items-center justify-center bg-gray-200">
+const App = () => {
+  return (
+    <div className="h-screen flex items-center justify-center bg-gray-200">
 {/* <TodoList/> */ }
 {/* <CountRedux/>
        */}
@@ -160,8 +161,9 @@ export default App;
 {/* <ToDoTask /> */ }
 {/* <ReactLifecycle /> */ }
 {/* <Props /> */ }
-{/* </div>
+<ToDo/>
+</div>
   );
 };
 
-export default App; */}
+export default App;
