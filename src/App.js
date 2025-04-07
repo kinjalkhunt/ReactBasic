@@ -125,13 +125,92 @@
 // export default App;
 
 //  in practice we use this in our routes 
+// Savan Italiya
+// 5:52 PM
+// Service monitors
+// Prometheous + Grafana for Redis , backend server, fron-end server, redis, postgres, rabbitmq, elastic search
 
+// GUI Tools
+// Kibana - Elastic Search
+// Redis Insight - Redis
+// DB visualizer - Postgres
+
+// AWS Services
+// EC2
+// S3 Bucket
+// SNS
+// SES
+// DevOps and Git Management
+// Github
+// Jenkins
+
+// Search Engine
+// Elastic Search
+// Savan Italiya
+// 5:57 PM
+// *Feature (Core)*
+
+// Data Analysis,
+// Security Points (Auth)
+// Third Party services (RabbitMQ + Redis + Firebase + Google Apis)
+// Service monitors
+// Doc storage and maintainability
+
+// *Main Feature*
+// Chat-support (CLG-SCA, STD-SGA)
+// Notifications and Emails(not fixed and static emails)
+// Financial (Payments)
+// Collage Management
+// Role Management (Module Wise)
+// Module Management
+// Applicant Management
+// referral and Schemes
+// Subject Management
+// Feedback Managements
+// Rating and Reviews
+// admissions verifications (with document)
+// Profile Managements
+// Domain management (Production side)
+
+// Databases
+// Postgres
+// Redis (Caching and Rate Limitation)
+// RabbitMQ(Query based DB)
+
+// Secuity Practices
+// XSS validation
+// Api Interpceptors
+// Rate Limitation
+// Input sanitization
+// Joi Validations
+// Strict middlewares
+// Service monitors
+// Prometheous + Grafana for Redis , backend server, fron-end server, redis, postgres, rabbitmq, elastic search
+
+// GUI Tools
+// Kibana - Elastic Search
+// Redis Insight - Redis
+// DB visualizer - Postgres
+
+// AWS Services
+// EC2
+// S3 Bucket
+// SNS
+// SES
+
+// DevOps and Git Management
+// Github
+// Jenkins
+
+// Search Engine
+// Elastic Search
 
 import React from "react";
 import TodoList from "./Component/redux/ToDoList.js";
 import CountRedux from "./Component/redux1/CountRedux.js";
 import Cart from "./Component/redux-toolkit/Cart.js";
 import ToDo from "./Component/redux-toolkit/ToDo.js";
+import FeedbackSystem from "./Component/UpandDownVote.js";
 
 const App = () => {
   return (
@@ -161,7 +240,9 @@ const App = () => {
 {/* <ToDoTask /> */ }
 {/* <ReactLifecycle /> */ }
 {/* <Props /> */ }
-<ToDo/>
+{/* <ToDo/>
+ */}
+ <FeedbackSystem/>
 </div>
   );
 };

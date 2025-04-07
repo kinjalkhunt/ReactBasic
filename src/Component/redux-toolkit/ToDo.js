@@ -24,7 +24,7 @@ function ToDo() {
     const handleSaveEdit = () => {
         if (editTask.trim()) {
             dispatch(updateToDo({ id: editId, tasks: editTask }));
-            dispatch(cancelToDo()); // Reset edit state after saving
+            dispatch(cancelToDo()); 
         }
     };
 
