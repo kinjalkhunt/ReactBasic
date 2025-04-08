@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, toggleTodo, removeTodo } from "../redux/reducer/Reducer"; // Fixed import path
+import { addTodo, removeTodo, toggleTodo } from "./action/Action.js";
+// import { addTodo, toggleTodo, removeTodo } from "../redux/reducer/Reducer"; // Fixed import path
 
 const TodoList = () => {
   const [todoText, setTodoText] = useState("");
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state?.todoState?.todos);
   const dispatch = useDispatch();
 
   const handleAddTodo = () => {
     if (todoText.trim() !== "") {
       dispatch(addTodo(todoText));
       setTodoText("");
+
     }
   };
 
@@ -25,6 +27,8 @@ const TodoList = () => {
           placeholder="Add a new task..."
           value={todoText}
           onChange={(e) => setTodoText(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleAddTodo()}
+
         />
         <button
           className="ml-2 bg-blue-500 text-white px-4 py-2 rounded-md"
@@ -33,30 +37,32 @@ const TodoList = () => {
           Add
         </button>
       </div>
-
-      <ul>
-        {todos.map((todo) => (
-          <li
-            key={todo.id}
-            className={`flex justify-between items-center p-2 mb-2 ${
-              todo.completed ? "line-through text-gray-500" : ""
-            }`}
-          >
-            <span
-              className="cursor-pointer"
-              onClick={() => dispatch(toggleTodo(todo.id))}
+      {todos.length === 0 ? (
+        <p className="text-gray-500 text-center"> No Tasks yet. Add One!</p>
+      ) : (
+        <ul>
+          {todos.map((todo) => (
+            <li
+              key={todo.id}
+              className={`flex justify-between items-center p-2 mb-2 ${todo.completed ? "line-through text-gray-500" : ""
+                }`}
             >
-              {todo.text}
-            </span>
-            <button
-              className="bg-red-500 text-white px-3 py-1 rounded-md"
-              onClick={() => dispatch(removeTodo(todo.id))}
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+              <span
+                className="cursor-pointer"
+                onClick={() => dispatch(toggleTodo(todo.id))}
+              >
+                {todo.text}
+              </span>
+              <button
+                className="bg-red-500 text-white px-3 py-1 rounded-md"
+                onClick={() => dispatch(removeTodo(todo.id))}
+              >
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

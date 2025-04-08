@@ -8,8 +8,20 @@
 
 
 // redux/store.js
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import todoReducer from "../redux/reducer/Reducer";
+// import { createStore, applyMiddleware } from "redux";
+// import thunk from "redux-thunk";
+// import todoReducer from "../redux/reducer/Reducer";
 
-export const store = createStore(todoReducer, applyMiddleware(thunk));
+// export const store = createStore(todoReducer, applyMiddleware(thunk));
+
+
+import { createStore,  combineReducers, applyMiddleware } from "redux";
+import todoReducer from "../redux/reducer/Reducer.js";
+import { thunk } from "redux-thunk";
+
+const rootReducer = combineReducers({
+  todoState: todoReducer, 
+});
+
+export const store = createStore(rootReducer, applyMiddleware(thunk));
+

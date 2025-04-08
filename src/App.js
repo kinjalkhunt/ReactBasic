@@ -215,7 +215,7 @@ import FeedbackSystem from "./Component/UpandDownVote.js";
 const App = () => {
   return (
     <div className="h-screen flex items-center justify-center bg-gray-200">
-{/* <TodoList/> */ }
+<TodoList/> 
 {/* <CountRedux/>
        */}
 {/* <Cart /> */ }
@@ -242,7 +242,7 @@ const App = () => {
 {/* <Props /> */ }
 {/* <ToDo/>
  */}
- <FeedbackSystem/>
+ {/* <FeedbackSystem/> */}
 </div>
   );
 };
