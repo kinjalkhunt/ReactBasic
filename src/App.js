@@ -211,14 +211,16 @@ import CountRedux from "./Component/redux1/CountRedux.js";
 import Cart from "./Component/redux-toolkit/Cart.js";
 import ToDo from "./Component/redux-toolkit/ToDo.js";
 import FeedbackSystem from "./Component/UpandDownVote.js";
+import { Auth } from "./Component/redux-toolkit/Auth.js";
+import UserData from "./Component/redux/UserData.js";
 
 const App = () => {
   return (
     <div className="h-screen flex items-center justify-center bg-gray-200">
-<TodoList/> 
+{/* <TodoList/>  */}
 {/* <CountRedux/>
        */}
-{/* <Cart /> */ }
+ {/* <Cart />  */}
 {/* <Counter /> */ }
 {/* <Counter /> */ }
 {/* <ToggleBackground /> */ }
@@ -243,6 +245,8 @@ const App = () => {
 {/* <ToDo/>
  */}
  {/* <FeedbackSystem/> */}
+ {/* <Auth/> */}
+ <UserData/>
 </div>
   );
 };

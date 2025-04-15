@@ -13,6 +13,10 @@ const cartSlice = createSlice({
       } else {
         state.cartItems.push({ ...action.payload, quantity: 1 });
       }
+      console.log(">>>>>",state.cartItems);
+      console.log("???????",item);
+      
+      
     },
     removeFromCart: (state, action) => {
       state.cartItems = state.cartItems.filter((item) => item.id !== action.payload);
