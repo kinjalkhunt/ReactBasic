@@ -213,6 +213,7 @@ import ToDo from "./Component/redux-toolkit/ToDo.js";
 import FeedbackSystem from "./Component/UpandDownVote.js";
 import { Auth } from "./Component/redux-toolkit/Auth.js";
 import UserData from "./Component/redux/UserData.js";
+import Firbase from "./Component/Firbase.js";
 
 const App = () => {
   return (
@@ -246,7 +247,8 @@ const App = () => {
  */}
  {/* <FeedbackSystem/> */}
  {/* <Auth/> */}
- <UserData/>
+ {/* <UserData/> */}
+ <Firbase/>
 </div>
   );
 };
