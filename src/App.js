@@ -214,6 +214,7 @@ import FeedbackSystem from "./Component/UpandDownVote.js";
 import { Auth } from "./Component/redux-toolkit/Auth.js";
 import UserData from "./Component/redux/UserData.js";
 import Firbase from "./Component/Firbase.js";
+import ToDoFirebase from "./Component/ToDoFirebase.js";
 
 const App = () => {
   return (
@@ -248,7 +249,8 @@ const App = () => {
  {/* <FeedbackSystem/> */}
  {/* <Auth/> */}
  {/* <UserData/> */}
- <Firbase/>
+ {/* <Firbase/> */}
+ <ToDoFirebase/>
 </div>
   );
 };
