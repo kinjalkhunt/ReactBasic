@@ -14,12 +14,12 @@ function ToDoFirebase() {
 
     const fetchData = async () => {
         const docs = await getDocs(collectionRef);
-        setLists(docs.docs.map((doc) => ({...doc.data(), id: doc.id})))
+        setLists(docs.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     }
 
     const handleAdd = async () => {
-        if(task.trim !== ''){
-            await addDoc(collectionRef, {text: task});
+        if (task.trim !== '') {
+            await addDoc(collectionRef, { text: task });
             setTask('')
             fetchData()
 
@@ -39,21 +39,22 @@ function ToDoFirebase() {
 
     return (
         <div>
-            <h1>ToDoFirebase</h1>
+            <h1 className='text-2xl flex justify-center '>ToDo In Firebase</h1>
             <br></br>
             <input
                 type='text'
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
-                placeholder='enter your task'>
+                placeholder='enter your task'
+                className='border p-2'>
 
             </input>
-            <button onClick={handleAdd}>Add</button>
+            <button onClick={handleAdd} className='border p-2'> Add</button>
             <ul>
                 {lists.map((item) => (
-                    <li key={item.id}>
-                        {item.name}
-                        <button onClick={handleDelete}>Delete</button>
+                    <li key={item.id} className='flex justify-between items-center border p-2'>
+                        {item.text} 
+                        <button onClick={handleDelete} className='border p-2'>Delete</button>
                     </li>
 
                 ))}

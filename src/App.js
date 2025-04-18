@@ -1,5 +1,6 @@
 // // this is dynamic route set with lazy packeage for scalibility and flexibility 
-
+import React, { useEffect, useState } from "react";
+import { io } from "socket.io-client";
 // import React from "react";
 // import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import { Toaster } from "react-hot-toast";
@@ -205,20 +206,20 @@
 // Search Engine
 // Elastic Search
 
-import React from "react";
-import TodoList from "./Component/redux/ToDoList.js";
-import CountRedux from "./Component/redux1/CountRedux.js";
-import Cart from "./Component/redux-toolkit/Cart.js";
-import ToDo from "./Component/redux-toolkit/ToDo.js";
-import FeedbackSystem from "./Component/UpandDownVote.js";
-import { Auth } from "./Component/redux-toolkit/Auth.js";
-import UserData from "./Component/redux/UserData.js";
-import Firbase from "./Component/Firbase.js";
-import ToDoFirebase from "./Component/ToDoFirebase.js";
+// import React from "react";
+// import TodoList from "./Component/redux/ToDoList.js";
+// import CountRedux from "./Component/redux1/CountRedux.js";
+// import Cart from "./Component/redux-toolkit/Cart.js";
+// import ToDo from "./Component/redux-toolkit/ToDo.js";
+// import FeedbackSystem from "./Component/UpandDownVote.js";
+// import { Auth } from "./Component/redux-toolkit/Auth.js";
+// import UserData from "./Component/redux/UserData.js";
+// import Firbase from "./Component/Firbase.js";
+// import ToDoFirebase from "./Component/ToDoFirebase.js";
 
-const App = () => {
-  return (
-    <div className="h-screen flex items-center justify-center bg-gray-200">
+// const App = () => {
+//   return (
+//     <div className="h-screen flex items-center justify-center bg-gray-200">
 {/* <TodoList/>  */}
 {/* <CountRedux/>
        */}
@@ -250,9 +251,56 @@ const App = () => {
  {/* <Auth/> */}
  {/* <UserData/> */}
  {/* <Firbase/> */}
- <ToDoFirebase/>
-</div>
+//  <ToDoFirebase/>
+// </div>
+//   );
+// };
+
+// export default App;
+
+
+const socket = io("http://localhost:8000"); // your backend address
+
+function App() {
+  const [message, setMessage] = useState("");
+  const [chat, setChat] = useState([]);
+
+  const sendChat = (e) => {
+    e.preventDefault();
+    socket.emit("sendMessage", { message });
+    setMessage("");
+  };
+
+  useEffect(() => {
+    socket.on("receiveMessage", (data) => {
+      console.log("Received message:", data); // helpful for debugging
+      setChat((prev) => [...prev, data.message]);
+    });
+  
+    return () => {
+      socket.off("receiveMessage");
+    };
+  }, []);
+  
+  return (
+    <div className="App">
+      <h2>Simple Chat App</h2>
+      <form onSubmit={sendChat}>
+        <input
+          type="text"
+          value={message}
+          placeholder="Type message..."
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button type="submit">Send</button>
+      </form>
+      <div>
+        {chat.map((msg, index) => (
+          <p key={index}>{msg}</p>
+        ))}
+      </div>
+    </div>
   );
-};
+}
 
 export default App;
