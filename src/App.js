@@ -1,5 +1,5 @@
 // // this is dynamic route set with lazy packeage for scalibility and flexibility 
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { io } from "socket.io-client";
 // import React from "react";
 // import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -220,10 +220,10 @@ import { io } from "socket.io-client";
 // const App = () => {
 //   return (
 //     <div className="h-screen flex items-center justify-center bg-gray-200">
-{/* <TodoList/>  */}
+{/* <TodoList/>  */ }
 {/* <CountRedux/>
        */}
- {/* <Cart />  */}
+{/* <Cart />  */ }
 {/* <Counter /> */ }
 {/* <Counter /> */ }
 {/* <ToggleBackground /> */ }
@@ -247,10 +247,10 @@ import { io } from "socket.io-client";
 {/* <Props /> */ }
 {/* <ToDo/>
  */}
- {/* <FeedbackSystem/> */}
- {/* <Auth/> */}
- {/* <UserData/> */}
- {/* <Firbase/> */}
+{/* <FeedbackSystem/> */ }
+{/* <Auth/> */ }
+{/* <UserData/> */ }
+{/* <Firbase/> */ }
 //  <ToDoFirebase/>
 // </div>
 //   );
@@ -276,12 +276,12 @@ function App() {
       console.log("Received message:", data); // helpful for debugging
       setChat((prev) => [...prev, data.message]);
     });
-  
+
     return () => {
       socket.off("receiveMessage");
     };
   }, []);
-  
+
   return (
     <div className="App">
       <h2>Simple Chat App</h2>
@@ -304,3 +304,48 @@ function App() {
 }
 
 export default App;
+
+// const socket = io("http://localhost:8000")
+// const App = () => {
+//   const [message, setMessage] = useState("");
+//   const [chat, setChat] = useState([]);
+
+//   const sendChat = (e) => {
+//     e.preventDefault();
+//     socket.emit("sendMessage", { message })
+//     setMessage("");
+//   }
+
+//   useEffect(() => {
+//     socket.on("receiveMessage", (data) => {
+//       console.log("Received Message:", data);
+//       setChat((prev) => [...prev, data.message]);
+
+//       return () => {
+//         socket.off("receiveMessage");
+//       };
+//     }, [])
+//   })
+//   return (
+//     <div>
+//       <h1 className="text-2xl font-bold text-center">Simple Chat App</h1>
+//       <div onSubmit={sendChat}>
+//         <input
+//           type="text"
+//           placeholder="Type message..."
+//           value={message}
+//           onChange={(e) => setMessage(e.target.value)}>
+
+//         </input>
+//         <button type="submit">Send</button>
+//       </div>
+//       <div>
+//         {chat.map((msg, index) => (
+//           <p key={index}>{msg}</p>
+//         ))}
+//       </div>
+//     </div>
+//   )
+
+// }
+// export default App;
